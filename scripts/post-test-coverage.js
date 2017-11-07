@@ -1,6 +1,7 @@
 'use strict';
 
 const combine = require('istanbul-combine');
+const execa = require('execa');
 const fs = require('fs-extra');
 
 fs.emptyDirSync('coverage');
@@ -8,7 +9,7 @@ fs.emptyDirSync('coverage');
 const opts = {
   dir: 'coverage',
   pattern: 'packages/*/coverage/*.json',
-  print: 'summary',
+  print: 'detail',
   reporters: {
     cobertura: {},
     json: {},
@@ -17,3 +18,7 @@ const opts = {
   }
 };
 combine.sync(opts);
+
+if (process.env.CI) {
+  execa.sync('codecov');
+}

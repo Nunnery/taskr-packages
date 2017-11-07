@@ -1,0 +1,38 @@
+{
+  "name": "taskr-preprocess",
+  "version": "0.0.0-development",
+  "description": "Preprocess files with preprocess.",
+  "license": "MIT",
+  "repository": "https://github.com/Nunnery/taskr-packages.git",
+  "author": "Richard Harrah <topplethenunnery@gmail.com>",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "format": "../../node_modules/.bin/prettier --write index.js test/**/*.js",
+    "lint": "../../node_modules/.bin/eslint index.js test/**/*.js",
+    "lint:fix": "../../node_modules/.bin/eslint --fix index.js test/**/*.js",
+    "test": "../../node_modules/.bin/nyc ../../node_modules/.bin/tape test/*.js | ../../node_modules/.bin/tap-spec",
+    "test:coverage": "../../node_modules/.bin/nyc report --reporter=lcov --reporter=json"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "taskr",
+    "taskr-plugin",
+    "preprocess",
+    "process",
+    "template"
+  ],
+  "dependencies": {
+    "preprocess": "^3.1.0"
+  },
+  "devDependencies": {
+    "@taskr/clear": "^1.1.0",
+    "taskr": "^1.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

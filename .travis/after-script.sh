@@ -2,5 +2,5 @@
 #!/bin/bash
 if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_NODE_VERSION" == "9" ]]
 then
-    ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+    npm run test:coverage
 fi
