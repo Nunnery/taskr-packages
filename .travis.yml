@@ -12,7 +12,7 @@ before_install:
 - export PATH=$HOME/.yarn/bin:$PATH
 script:
 - "/bin/bash .travis/lint-commits.sh"
-- yarn run lint && yarn run coverage
+- yarn run lint && yarn run test
 after_script:
 - "/bin/bash .travis/after-script.sh"
 after_success:
